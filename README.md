@@ -25,6 +25,11 @@ sudo apt-get install -y texlive-latex-extra
 sudo apt-get install -y poppler-utils
 ```
 
+Для сжатия pdf-файлов (gs)
+```
+sudo apt-get install -y ghostscript
+```
+
 Для редактирования pdf-файлов (удаление пустых страниц)
 ```
 sudo apt-get install -y qpdf
@@ -32,7 +37,7 @@ sudo apt-get install -y qpdf
 
 ### Применение скриптов
 
-Компиляция конспекта одной недели.
+Компиляция конспекта одной недели
 ```
 ./gen_pdf.sh [номер недели]
 ```
@@ -40,6 +45,11 @@ sudo apt-get install -y qpdf
 Финальная компиляция конспекта одной недели с объединением с другими файлами
 ```
 ./gen_full_pdf.sh [номер недели]
+```
+
+Сжатие рисунков одной недели
+```
+./compress_screen.sh [номер недели]
 ```
 
 Удаление пустых страниц в конце файлов рисунков
