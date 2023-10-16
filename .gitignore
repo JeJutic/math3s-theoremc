@@ -1,7 +1,9 @@
 ### IntelliJ IDEA ###
+.idea
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+*.iml
 
 ### Eclipse ###
 .apt_generated
@@ -31,3 +33,4 @@ bin/
 ### pdflatex ###
 *.aux
 *.log
+*.out

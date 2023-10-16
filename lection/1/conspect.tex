@@ -1,0 +1,139 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{proof}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{consequence}{Следствие}
+\newtheorem*{remark}{Замечание}
+
+\title{\href{https://www.youtube.com/live/0p9G5WBcDqs?si=1_87BezxIHYyR8rZ}{1-ая неделя}}
+
+\date{4.09.2023}
+
+\begin{document}
+\pagestyle{empty}
+
+\maketitle
+
+\begin{theorem}[Необходимое условие дифференцируемости]
+    Если $f: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^m$
+    дифференцируема в точке $a$,
+    то $\forall u \in \mathbb{R}^n \, \exists \frac{\partial f}{\partial u}(a)$
+    (далее показано, что это эквивалентно для частных производных только по $x_i$).
+\end{theorem}
+
+\begin{theorem}[Дифференциал композиции]    % 20m
+    Пусть $g: X \rightarrow Y$, $f: Y \rightarrow Z$.
+    Тогда если $g$ дифференцируема в точке $a$
+    и f дифференцируема в точке $g(a)$,
+    то $f \circ g$ дифференцируема в точке $a$
+    и $d_a (f \circ g) = d_{g(a)} f \cdot d_a g$.
+
+    Или, если рассматривать матрицу Якоби, $(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$
+\end{theorem}
+
+\begin{theorem}[Дифференцирование результата арифметических действий]    % 46m
+    Пусть $O \subseteq \mathbb{R}^n$, $a \in O$;
+    $f, g: O \rightarrow \mathbb{R}^m$, $\lambda: O \rightarrow R$;
+    $f, g, \lambda$ дифференцируемы в точке $a$;
+    $A, B \in \mathbb{R}$.
+
+    Тогда \begin{enumerate}
+              \item $Af + Bg$ дифференцируемо в точке $a$ и $d_a (Af + Bg) = Ad_a f + Bd_a g$
+              \item $\lambda f$ дифференцируемо в точке $a$
+                и $d_a (\lambda f) = f(a) \cdot d_a \lambda + \lambda(a) \cdot d_a f$ \\
+                Или на языке матриц:
+                    $(\lambda f)' = f(a) \cdot \lambda'(a) + \lambda(a) \cdot f'(a) $
+              \item $\langle f, g \rangle$ дифференцируемо в точке $a$ и
+                $d_a \langle f, g \rangle = (g(a))^T d_a f + (f(a))^T d_a g $ \\
+                $(\langle f, g \rangle)' = (g(a))^T \cdot f'(a) + (f(a))^T \cdot g'(a)$
+              \item Если $m = 1$ и $g(a) \neq 0$, то $f / g$ дифференцируемо в точке $a$
+                и $d_a (f / g) = \frac{g(a)d_a f - f(a)d_a g}{g^2(a)}$
+    \end{enumerate}
+    если $g$ дифференцируема в точке $a$
+    и f дифференцируема в точке $g(a)$,
+    то $f \circ g$ дифференцируема в точке $a$
+    и $d_a (f \circ g) = d_{g(a)} f \cdot d_a g$.
+
+    Или, если рассматривать матрицу Якоби, $(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$
+\end{theorem}
+
+\begin{theorem}[Теорема Лагранжа для отображений]    % 1:15
+    Пусть $f: \mathbb{R}^n \supseteq O \text{(открытое)} \rightarrow \mathbb{R}^m$,
+    $f$ дифференцируемо в $O$; $a, b \in O$, $\forall t \in (0, 1) \ a + t(b - a) \in O$.
+
+    Тогда $\exists \theta \in (0, 1): ||f(b) - f(a)|| \leq ||f'(a + \theta(b - a))|| \cdot ||b-a||$
+\end{theorem}
+
+\setcounter{consequence}{0}
+\begin{consequence}
+    Если $\forall \theta \in (0, 1) \ ||f'(a + \theta(b - a))|| \leq M \in \mathbb{R}$,
+    то $||f(b) - f(a)|| \leq M ||(b - a)||$
+\end{consequence}
+\begin{consequence}
+    Если $m = 1$
+    и $\forall u \in O \ \forall i = 1..n \ ||\frac{\partial f}{\partial x_i}(u)|| \leq M$,
+    то $||f(b) - f(a)|| \leq M \sqrt{n} ||(b - a)||$
+\end{consequence}
+
+\begin{theorem}[Достаточное условие дифференцируемости]    % 1:36
+    Пусть $f: \mathbb{R}^n \supseteq O \text{(открытое)} \rightarrow \mathbb{R}^m$, $a \in O$;
+    $\frac{\partial f}{\partial x_i} \ \forall i \in 1..n$
+    \begin{enumerate*} [label=\itshape\arabic*\upshape)]
+        \item определен в некоторой окрестности точки $a$
+        \item непрерывен в точкe $a$
+    \end{enumerate*}
+
+    Тогда $f$ дифференцируема в точке $a$.
+\end{theorem}
+
+\begin{remark}
+    $f$ дифференцируема в точке $a$
+    $\Leftrightarrow f(a + h) - f(a) - f'(a) \cdot h = o(h)$ при $h \rightarrow 0$
+\end{remark}
+
+\begin{definition}
+    Пусть $f: \mathbb{R}^n \supseteq O \text{(открытое)} \rightarrow \mathbb{R}$,
+    $g(u) = \frac{\partial f}{\partial x_i}(u)$ для некоторого $i$ определена в точке $a$
+    и $\exists \frac{\partial g}{\partial x_j}(a)$ для некоторого $j$.
+
+    Тогда $f_{x_i x_j} \coloneqq \frac{\partial^2 f}{\partial x_j \partial x_i}(a)
+        \coloneqq \frac{\partial g}{\partial x_i}(a)$
+\end{definition}
+
+\begin{definition}
+    $\frac{\partial^2 f}{\partial x_i^2} \coloneqq \frac{\partial^2 f}{\partial x_j \partial x_i}$
+        - чистая частная производная.
+\end{definition}
+
+\begin{definition}
+    $f_{x_i x_j}$, где $i \neq j$, - смешанная производная.
+\end{definition}
+
+\begin{theorem}
+    Пусть $f: \mathbb{R}^n \supseteq O \text{(открытое)} \rightarrow \mathbb{R}$, $i \neq j$;
+    $\frac{\partial^2 f}{\partial x_j \partial x_i}$
+    и $\frac{\partial^2 f}{\partial x_i \partial x_j}$
+    определены и непрерывны в окрестности точка $a$.
+
+    Тогда $\frac{\partial^2 f}{\partial x_j \partial x_i}(a)
+        = \frac{\partial^2 f}{\partial x_i \partial x_j}(a)$
+\end{theorem}
+
+\begin{definition}
+    Если $f: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}$, $h \in \mathbb{R}^n$,
+    то $d_a^2 f(h) \coloneqq d(d_a f(h))(h)$
+\end{definition}
+
+\end{document}
