@@ -1,0 +1,165 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{proof}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{theorem}{Теорема}
+\newtheorem{consequence}{Следствие}
+\newtheorem*{remark}{Замечание}
+
+\title{\href{https://www.youtube.com/live/CfB6Jk_3U4o?si=kOlWnc-YSZmP9kN7}{2-ая неделя}}
+
+\date{11.09.2023}
+
+\begin{document}
+\pagestyle{empty}
+
+\maketitle
+
+\begin{definition}
+    $r \in \mathbb{Z_+}$, $O - \text{открытое в } \mathbb{R}^n$
+
+    Тогда $C^r(O) \coloneqq \{ f \colon O \rightarrow R :
+    \forall i_1 \dots i_r \ \frac{\partial^r f}{\partial x_{i_r} \dots \partial x_{i_1}} \in C(O) \}$
+\end{definition}
+
+\begin{definition}
+    $C^{\infty} (O) \coloneqq \underset{r \in \mathbb{Z_+}}{\cap} C^r (O)$
+\end{definition}
+
+\begin{theorem}[О линейном пространстве $C^r (O)$]
+    $C^r (O)$ - линейное пространство.
+    Замкнуто относительно произведения: $f, g \in C^r : f \cdot g \in C^r$
+\end{theorem}
+
+\begin{definition}
+    $C^r (O \rightarrow \mathbb{R}^m) \coloneqq \{f : f_1, \dots f_m \in C^r(O)\} $
+\end{definition}
+
+\begin{theorem}[Композиция $C^r (O)$]
+    Пусть $\varphi \in C^r (O \rightarrow \tilde{O})$, $f \in C^r(\tilde{O})$.
+
+    Тогда $f \circ \varphi \in C^r (O)$
+\end{theorem}
+
+\begin{theorem}[О равенстве смешанных производных в классе $C^r$]
+    Если $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$, $r \in \mathbb{Z_+}$;
+    $(i_1, i_2, \dots i_l) \in 2^{ \{1, \dots, r\} }$, $l \leq r$,
+    $(j_1, \dots, j_l) - \text{перестановка} (i_1, \dots i_l)$
+
+    Тогда $\frac{\partial^l f}{\partial x_{i_l} \dots \partial x_{i_1}}
+        = \frac{\partial^l f}{\partial x_{j_l} \dots \partial x_{j_1}}$
+\end{theorem}
+
+\begin{definition}
+    Мультииндекс - элемент $\mathbb{Z_+}^n$ \\
+    $|j| = j_1 + j_2 + \dots + j_n$ \\
+    $j! = j_1! \cdot j_2! \cdot \dots \cdot j_n!$ \\
+    $h \in \mathbb{R}^n, h^j = h_1^{j_1} \cdot \dots \cdot h_n^{j_n}$ \\
+    $f^(j) (a) = \frac{\partial^{|j|} f}{\partial x_n^{j_n} \dots \partial x_1^{j_1}} (a)$
+\end{definition}
+
+\begin{lemma}
+    Пусть $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$, $[a, a+h] \subset O$,
+    $g(t) = f(a + th)$.
+
+    Тогда $\forall l = 0, \dots, r :
+        g^{(l)} (t) = \sum_{j \in \mathbb{Z_+}^n, |j| = l} \frac{l!}{j!} f^{(j)} (a + th) \cdot h^j$
+\end{lemma}
+
+\begin{theorem}[Глобальная формула Тейлора(-Лагранжа) для функции нескольких переменных]
+    Если $f \in C^{r+1} (O)$, $O - \text{открытое в } \mathbb{R}^n$, $r \in \mathbb{Z_+}$;
+    $[a, a+h] \subset O$.
+
+    Тогда $\exists \theta \in (0, 1):
+        f(a+h) = \sum_{j \in \mathbb{Z_+}^n, |j| \leq r} \frac{f^{(j)} (a)}{j!} h^j
+        + \sum_{j \in \mathbb{Z_+}^n, |j| = r+1} \frac{f^{(j)} (a + \theta h)}{j!} h^j$
+\end{theorem}
+
+\begin{consequence}[Формула Тейлора-Пеано, локальный вариант формулы Тейлора]
+    Пусть $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$, $a \in O$.
+
+    Тогда $f(a+h) = \sum_{j \in \mathbb{Z_+}^n, |j| \leq r} \frac{f^{(j)} (a)}{j!} h^j
+    + o(||h||^j)$ при $h \rightarrow 0$
+\end{consequence}
+
+\begin{consequence}[Теорема Лагранжа о среднем для скалярно-значных отображений]
+    Пусть $f \in C^1 (O)$, $O - \text{открытое в } \mathbb{R}^n$;
+    $a, h: a+th \in O \forall t \in [0, 1]$.
+
+    Тогда $f(a+h) - f(a) = \sum_{i=1}^n \frac{\partial f}{\partial x_i} (a + \theta h) \cdot h_i
+        = \langle \nabla_{a + \theta h} f, h \rangle$ (частный случай Тейлора для $r = 0$).
+\end{consequence}
+
+\begin{consequence}[Полиномиальная формула]
+    $(x_1 + \dots + x_n)^r = \sum_{j \in \mathbb{Z_+}^n, |j| = r} \frac{r!}{j!} (x_1, \dots, x_n)^j$,
+    при $r \in \mathbb{Z_+}$
+\end{consequence}
+
+\begin{remark}
+    $d_a^0 f = f(a)$ \\
+    $d_a^1 f = d_a f$ \\
+    $d_a^1 f(h) = d_a f(h)$ \\
+    $d_a^{l+1} f(h) = d_a (d_a^l f(h)) (h)$
+\end{remark}
+
+\begin{lemma}
+    Пусть $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$;
+    $a, h: a+th \in O \ \forall t \in [0, 1]$.
+
+    Тогда $\forall l = 0, \dots, r: d_{a+th}^l f(h) = g^{(l)} (t)$, где $g(t) = f(a+th)$
+\end{lemma}
+
+\begin{theorem}[Формула Тейлора в дифференциалах в условиях теоремы Тейлора-Лагранжа]
+    $f(a+h) = \sum_{l=0}^r \frac{1}{l!} d_a^l f(h) + \frac{d^{l+1}_{a + \theta h} f}{(l + 1)!}(h)$
+\end{theorem}
+
+\begin{definition}
+    $f: E \rightarrow \mathbb{R}$, $E \subseteq \mathbb{R}^n$, $a \in E$.
+
+    $a$ называется точкой максимума для f, если существует окрестность
+        $U(a): f(x) \leq f(a) \ \forall x \in U(a) \cap E$
+\end{definition}
+
+\begin{theorem}[Необходимое условие экстремума]
+    $f: E \rightarrow \mathbb{R}$, $a \in Int E$, $a$ - точка экстремума $f$,
+    $f$ дифференцируема в точке $a \Rightarrow d_a f = 0
+    \Leftrightarrow \nabla_a f = 0
+    \Leftrightarrow \forall i \in {1, \dots, n} : \frac{\partial f}{\partial x_i}(a) = 0$
+\end{theorem}
+
+\begin{theorem}
+    $a$ - точка максимума $f$, $\varphi$ непрерывна в точке $\alpha$, $\varphi(\alpha) = a$.
+
+    Тогда $\alpha$ - точка максимума $f \circ \varphi$
+\end{theorem}
+
+\begin{remark}
+    $\sum_{1 \leq i, j \leq n} a_{i,j} h_i h_j$ - квадратичная форма. \\
+    $d_a^2 f(h)$ - квадратичная форма переменных $h_1, \dots, h_n$. \\
+    $d_a^l f(h)$ - однородная функция степени $l$: $d_a^l f(Ch) = C^l d_a^l f(h)$. \\
+    Форма $Q(h)$ бывает положительно определенной, отрицательно определенной,
+    неопределенной (бывает и положительной, и отрицательной).
+\end{remark}
+
+\begin{theorem}[Достаточное условие экстремума]
+    $f: \mathbb{R}^n \supseteq E \rightarrow \mathbb{R}$, $a \in Int E$,
+    в точке $a$ выполняется необходимое условие экстремума и $\exists d_a^2 f$.
+
+    $Q(h) \coloneqq d_a^2 f(h)$. Тогда, если $Q > 0$, то $a$ - точка минимума,
+    если $Q < 0$, то $a$ - точка максимума,
+    если $Q$ неопределенная, то $a$ - не точка экстремума.
+\end{theorem}
+
+\end{document}

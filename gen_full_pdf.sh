@@ -7,6 +7,7 @@ cd "lection/$1/screen"
 pdfunite $(find . -type f -name '*.pdf' | sort) ../screen.pdf
 cd ..
 pdfunite conspect.pdf screen.pdf conspect_screen.pdf
+rm screen.pdf
 cd ../..
 
 echo "Uniting all conspects pdfs..."
