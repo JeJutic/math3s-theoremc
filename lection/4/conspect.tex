@@ -1,0 +1,176 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{proof}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{theorem}{Теорема}
+\newtheorem{consequence}{Следствие}
+\newtheorem*{remark}{Замечание}
+\newtheorem{ticket}{Билет}
+
+\title{\href{https://www.youtube.com/live/3aDNqz7KMPg?si=9vZt3tPeb37o5JFc}{4-ая неделя}}
+
+\date{25.09.2023}
+
+\begin{document}
+\pagestyle{empty}
+
+\maketitle
+
+\setcounter{ticket}{11}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Теорема о непрерывности функции, заданной неявно]
+    Пусть $X \subseteq \mathbb{R}^n$, $I = [a, b] \subseteq R$, $X \times I \subseteq O$;
+    $F: O \rightarrow R$ непрерывно и $\forall x \in X: F(x, a) \cdot F(x, b) < 0, \
+    F(x, y) = \varphi_x (y)$ строго монотонна на $[a, b]$.
+
+    Тогда $\exists! f: x \mapsto y, f: X \rightarrow I$ такая, что
+    \begin{enumerate}
+        \item $\forall x \in X: F(x, f(x)) = 0$
+        \item в $X \times I$ $F(x, y) = 0 \Leftrightarrow y = f(x)$
+        \item $f \in C(X)$
+    \end{enumerate}
+\end{ticket}
+
+\begin{ticket}[Теорема о гладкости функции, заданной неявно]
+    Пусть $X \subseteq \mathbb{R}^n$, $I = [a, b] \subseteq R$, $X \times I \subseteq O$;
+    $F: O \rightarrow R$, $F \in C^1(O)$;
+    $(x*, y*) - \text{решение } F(x, y) = 0$ и $\frac{\partial F}{\partial y} (x*, y*) \neq 0$.
+
+    Тогда $\exists$ окрестность $U_{x*} \subseteq \mathbb{R}^n$, окрестность $V_{y*}$
+    и $f: U_{x*} \rightarrow V_{y*} (x \mapsto y)$ такие что:
+    \begin{enumerate}
+        \item в $U_{x*} \times V_{y*}$ $F(x, y) = 0 \Leftrightarrow y = f(x)$
+        \item $f \in C^1(U_{x*})$
+        \item $f_{x_i}'(x) = - \frac{F_{x_i}'}{F_y'} (x, y)$
+    \end{enumerate}
+\end{ticket}
+
+\begin{ticket}[Теорема об открытом отображении в случае равенства размерностей образов и прообразов]
+    Пусть $\Phi: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^n$, $\Phi'$ обратима всюду в $O$.
+
+    Тогда $\Phi$ - открытое отображение (то есть $\forall U$ открытого в $O$ $\Phi(O)$ открыто).
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Лемма об оценке снизу приращения отображения с обратимым дифференциалом]
+    Пусть $F: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^n$, $F$ дифференцируема в $a$
+    и $F'(a)$ обратима.
+
+    Тогда $\exists \delta > 0, c > 0 : \forall x \in U_\delta (a) \
+    ||F(x) - F(a)|| \geq c||x-a||$.
+\end{ticket}
+
+\begin{ticket}[Теорема об открытом отображении в общем случае]
+    Пусть $\Phi: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^m$, $m \leq n$,
+    $rang \Phi'$ максимален всюду в $O$ ($= m$).
+
+    Тогда $\Phi$ - открытое отображение.
+\end{ticket}
+
+\setcounter{ticket}{25}
+\addtocounter{ticket}{-1}
+\begin{ticket}{\sout{Поточечная и равномерная сходимость функциональных последовательностей
+    и рядов. Элементарные свойства равномерной сходимости}}
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Характеристика равномерной сходимости посредством чебышевской нормы]
+    $f: X \rightarrow \mathbb{R}$ (или $\mathbb{C}$), $||f|| = \sup_{x \in X} |f(x)|$.
+    Если $f$ ограничена на $X$, то $||f|| < +\infty$.
+    При $t \geq 0$ $||tf|| = \sup_{x \in X} |t| |f(x)|$.
+    $\forall x \in X |f(x)+g(x)| \leq |f(x)| + |g(x)| \leq ||f|| + ||g||$
+    $\Rightarrow ||f+g|| = \sup_{x \in X} |f(x) + g(x)| \leq ||f|| + ||g||$.
+
+    Таким образом, $||\cdot||$ является нормой на совокупности функций на $X$.
+
+    Пусть $f_k, f: E \rightarrow \mathbb{C}$.
+    Тогда $f_k \rightrightarrows f \Leftrightarrow ||f_k - f|| \rightarrow 0$
+    при $k \rightarrow +\infty$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Критерий Коши равномерной сходимости для последовательностей]
+    Пусть $f_k, f: E \rightarrow \mathbb{C}$.
+
+    Тогда $f_k \rightrightarrows f \text{ на } E \Leftrightarrow
+    \forall \varepsilon > 0 \ \exists N = N(\varepsilon) : \forall n, m \geq N \
+    \forall x \in E \ |f_n(x) - f_m(x)| < \varepsilon$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Критерий Коши равномерной сходимости для рядов]
+    Пусть $f_k: E \rightarrow \mathbb{C}$.
+
+    Тогда $\Sigma_{k=1}^\infty f_k(x)$ сходится равномерно на $E \Leftrightarrow
+    \forall \varepsilon > 0 \ \exists N : \forall n \geq N \
+    \forall p \in \mathbb{Z_+} \ \forall x \in E \ |\Sigma_{k=n}^{n+p} f_k(x)| < \varepsilon$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Необходимое условие равномерной сходимости]
+    Следствие из критерия.
+
+    $\Sigma_{k=1}^\infty f_k(x)$ сходится равномерно на $E \Rightarrow
+    f_k(x) \rightrightarrows 0$ на $E$.
+\end{ticket}
+
+\begin{ticket}[\sout{Равномерная сходимость при действиях над множествами.}
+        Признак Вейерштрасса равномерной сходимости ряда]
+    Пусть ${f_n}: E \rightarrow \mathbb{C}$.
+
+    Тогда $\Sigma_{n=1}^\infty ||f_n||_{\text{ч}}$ сходится $\Rightarrow
+    \Sigma_{n=1}^\infty f_n(x)$ сходится равномерно на $E$.
+\end{ticket}
+
+\begin{ticket}[Признак Дирихле равномерной сходимости рядов]
+    Пусть ${f_n}: E \rightarrow \mathbb{C}$, ${g_n}: E \rightarrow \mathbb{R}$.
+
+    Если
+    \begin{enumerate}
+        \item ${\Sigma_{k=1}^\infty f_k(x)}$ относительно $x \in E$ равномерно
+            ограничен на $E$ ($\exists C: \forall n \in N \ \forall x \in E \
+            |\Sigma_{k=1}^\infty f_k(x)| \leq C$)
+        \item $\forall x \in E \ {g_n(x)}$ монотонная
+        \item $g_n \rightrightarrows 0$ на $E$
+    \end{enumerate}
+
+    Тогда $\Sigma_{n=1}^\infty f_n(x) g_n(x)$ сходится равномерно на $E$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Признак Абеля равномерной сходимости рядов]
+    Пусть ${f_n}: E \rightarrow \mathbb{C}$, ${g_n}: E \rightarrow \mathbb{R}$.
+
+    Если
+    \begin{enumerate}
+        \item $\Sigma_{n=1}^\infty f_n(x)$ сходится равномерно на $E$
+        \item $\forall x \in E \ {g_n(x)}$ монотонная
+        \item ${g_n(x)}$ равномерно по $x$ ограничено на $E$.
+    \end{enumerate}
+
+    Тогда $\Sigma_{n=1}^\infty f_n(x) g_n(x)$ сходится равномерно на $E$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[(с леммой) (взято у Кости Баца)]
+    Если $b_k(x)$ монотонно зависит от $k$ при любом $x$, то
+
+    $\left| \sum_{k = n}^m a_k(x) b_k(x)\right| \leqslant 4 \cdot
+    \underset{k = n:m}{\max} \left| A_k(x) \right| \cdot \max
+    \{|b_n(x)|, |b_m(x) | \}$.
+\end{ticket}
+
+\end{document}
