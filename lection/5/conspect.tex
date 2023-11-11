@@ -15,7 +15,7 @@
 
 \newtheorem{definition}{Определение}
 \newtheorem{lemma}{Лемма}
-\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem}{Теорема}
 \newtheorem{consequence}{Следствие}
 \newtheorem*{remark}{Замечание}
 \newtheorem{ticket}{Билет}
@@ -77,11 +77,38 @@
     \end{enumerate}
 \end{ticket}
 
-\begin{ticket}[Теорема об открытом отображении в общем случае]
-    Пусть $\Phi: \mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^m$, $m \leq n$,
-    $rang \Phi'$ максимален всюду в $O$ ($= m$).
-
-    Тогда $\Phi$ - открытое отображение.
+\setcounter{ticket}{27}
+\addtocounter{ticket}{-1}
+\begin{ticket}[(с леммой) (версия по лекции)]
+    $\sum_{k=1}^\infty f_k(x)$ равномерно сходится на $E$, $\varphi(x)$ ограничен
+    на $E \Rightarrow \sum_{k=1}^\infty \varphi(x) f_k(x)$
+    равномерно сходится на $E$
 \end{ticket}
+
+\begin{ticket}[\sout{Примеры исследования рядов на равномерную сходимость}]
+\end{ticket}
+
+\begin{theorem}[Признак Лейбница равномерной сходимости]
+    Skipped
+\end{theorem}
+
+\begin{theorem}[Признак равномерной сходимости для монотонных последовательностей]
+    Skipped
+\end{theorem}
+
+\begin{ticket}[Перестановка пределов для последовательностей]
+    Пусть $E \in \mathbb{R}^n$, $x_0 \in E$, $f_n : E \rightarrow \mathbb{C}$,
+    ${f_n (x)}$ равномерно сходится на $E$, $\forall k \in N \
+    \exists \lim_{x \rightarrow x_0} f_k(x) \in \mathbb{R}$.
+
+    Тогда $\lim_{x \rightarrow x_0} \lim_{k \rightarrow \infty} f_k(x) =
+    \lim_{k \rightarrow \infty} \lim_{x \rightarrow x_0} f_k(x)$,
+    оба предела существуют в $\mathbb{R}$.
+\end{ticket}
+
+\setcounter{consequence}{0}
+\begin{consequence}
+    Skipped
+\end{consequence}
 
 \end{document}

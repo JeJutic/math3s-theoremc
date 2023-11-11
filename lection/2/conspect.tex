@@ -27,7 +27,7 @@
 
 \maketitle
 
-\begin{definition}
+\begin{definition}[билет 4]
     $r \in \mathbb{Z_+}$, $O - \text{открытое в } \mathbb{R}^n$
 
     Тогда $C^r(O) \coloneqq \{ f \colon O \rightarrow R :
@@ -53,7 +53,7 @@
     Тогда $f \circ \varphi \in C^r (O)$
 \end{theorem}
 
-\begin{theorem}[О равенстве смешанных производных в классе $C^r$]
+\begin{theorem}[О равенстве смешанных производных в классе $C^r$ (билет 4)]
     Если $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$, $r \in \mathbb{Z_+}$;
     $(i_1, i_2, \dots i_l) \in 2^{ \{1, \dots, r\} }$, $l \leq r$,
     $(j_1, \dots, j_l) - \text{перестановка} (i_1, \dots i_l)$
@@ -62,7 +62,7 @@
         = \frac{\partial^l f}{\partial x_{j_l} \dots \partial x_{j_1}}$
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[билет 5]
     Мультииндекс - элемент $\mathbb{Z_+}^n$ \\
     $|j| = j_1 + j_2 + \dots + j_n$ \\
     $j! = j_1! \cdot j_2! \cdot \dots \cdot j_n!$ \\
@@ -78,7 +78,7 @@
         g^{(l)} (t) = \sum_{j \in \mathbb{Z_+}^n, |j| = l} \frac{l!}{j!} f^{(j)} (a + th) \cdot h^j$
 \end{lemma}
 
-\begin{theorem}[Глобальная формула Тейлора(-Лагранжа) для функции нескольких переменных]
+\begin{theorem}[Глобальная формула Тейлора(-Лагранжа) для функции нескольких переменных (билет 6)]
     Если $f \in C^{r+1} (O)$, $O - \text{открытое в } \mathbb{R}^n$, $r \in \mathbb{Z_+}$;
     $[a, a+h] \subset O$.
 
@@ -87,14 +87,14 @@
         + \sum_{j \in \mathbb{Z_+}^n, |j| = r+1} \frac{f^{(j)} (a + \theta h)}{j!} h^j$
 \end{theorem}
 
-\begin{consequence}[Формула Тейлора-Пеано, локальный вариант формулы Тейлора]
+\begin{consequence}[Формула Тейлора-Пеано, локальный вариант формулы Тейлора (билет 7)]
     Пусть $f \in C^r (O)$, $O - \text{открытое в } \mathbb{R}^n$, $a \in O$.
 
     Тогда $f(a+h) = \sum_{j \in \mathbb{Z_+}^n, |j| \leq r} \frac{f^{(j)} (a)}{j!} h^j
     + o(||h||^j)$ при $h \rightarrow 0$
 \end{consequence}
 
-\begin{consequence}[Теорема Лагранжа о среднем для скалярно-значных отображений]
+\begin{consequence}[Теорема Лагранжа о среднем для скалярно-значных отображений (билет 7)]
     Пусть $f \in C^1 (O)$, $O - \text{открытое в } \mathbb{R}^n$;
     $a, h: a+th \in O \forall t \in [0, 1]$.
 
@@ -102,7 +102,7 @@
         = \langle \nabla_{a + \theta h} f, h \rangle$ (частный случай Тейлора для $r = 0$).
 \end{consequence}
 
-\begin{consequence}[Полиномиальная формула]
+\begin{consequence}[Полиномиальная формула (билет 7)]
     $(x_1 + \dots + x_n)^r = \sum_{j \in \mathbb{Z_+}^n, |j| = r} \frac{r!}{j!} (x_1, \dots, x_n)^j$,
     при $r \in \mathbb{Z_+}$
 \end{consequence}
@@ -121,7 +121,7 @@
     Тогда $\forall l = 0, \dots, r: d_{a+th}^l f(h) = g^{(l)} (t)$, где $g(t) = f(a+th)$
 \end{lemma}
 
-\begin{theorem}[Формула Тейлора в дифференциалах в условиях теоремы Тейлора-Лагранжа]
+\begin{theorem}[Формула Тейлора в дифференциалах в условиях теоремы Тейлора-Лагранжа (билет 8)]
     $f(a+h) = \sum_{l=0}^r \frac{1}{l!} d_a^l f(h) + \frac{d^{l+1}_{a + \theta h} f}{(l + 1)!}(h)$
 \end{theorem}
 
@@ -132,7 +132,7 @@
         $U(a): f(x) \leq f(a) \ \forall x \in U(a) \cap E$
 \end{definition}
 
-\begin{theorem}[Необходимое условие экстремума]
+\begin{theorem}[Необходимое условие экстремума (билет 9)]
     $f: E \rightarrow \mathbb{R}$, $a \in Int E$, $a$ - точка экстремума $f$,
     $f$ дифференцируема в точке $a \Rightarrow d_a f = 0
     \Leftrightarrow \nabla_a f = 0

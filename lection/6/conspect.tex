@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{proof}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem*{theorem}{Теорема}
+\newtheorem{consequence}{Следствие}
+\newtheorem*{remark}{Замечание}
+\newtheorem{ticket}{Билет}
+
+\title{\href{https://www.youtube.com/live/T8Loz33oa0E?si=ALg7D2j652468pJr}{6-ая неделя}}
+
+\date{9.10.2023}
+
+\begin{document}
+\pagestyle{empty}
+
+\maketitle
+
+% note: не соответствует порядку рассказа на лекции, но соответствует порядку скринов
+
+\setcounter{ticket}{29}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Перестановка пределов для рядов]
+    Пусть $f_n : E \rightarrow \mathbb{C}$, $\sum_{n=1}^\infty f_n(x)$ сходится
+    равномерно на $E$ и $\forall k \in \mathbb{N} \ \exists \lim_{x \rightarrow x_0} f_k(x)$.
+
+    Тогда существуют оба и верно
+    $\lim_{x \rightarrow x_0} \sum_{n=1}^\infty f_n(x)
+    = \sum_{n=1}^\infty \lim_{x \rightarrow x_0} f_n(x)$
+\end{ticket}
+
+\section*{Билет 30. Следствия теоремы о перестановке пределов, связанные с непрерывностью
+    (взято у Кости Баца, убрано доказательство)}
+
+\begin{theorem}[Непрерывность в точке для последовательностей]
+    $\sqsupset D\subseteq X$ -- м.п.,~ $\left\{ f_n \right\} , f:D \to \mathbb{C}$, ~
+    $f_n\rightrightarrows f$ на  $D$.
+
+    Если $\left\{ f_n \right\} $ непрерывны в точке $x_0$, то и $f$ непрерывна в $x_0$.
+\end{theorem}
+
+\begin{theorem}[Непрерывность в точке для рядов]
+    Пусть $X$ -- м.п., $D \subset X, x_0 \in D, f_k: D \to \mathbb{R}
+    ($или $\mathbb{C})$ и выполнены следующие условия:
+    \begin{enumerate}
+        \item ряд $\sum\limits_{k=1}^\infty$ равномерно сходится на $D$ к сумме $S$;
+        \item все функции $f_k$ непрерывны в точке $x_0$.
+    \end{enumerate}
+    Тогда функция $S$ непрерывна в точке $x_0$.
+\end{theorem}
+
+\begin{theorem}[теорема Стокса-Зейделя]
+    $D\subseteq X,\quad f_n, f: D \to \mathbb{C}\quad f_n\rightrightarrows f$ на $D$ при
+    $n\to \infty $ и $f_n\in C(D) \implies f\in C(D)$, то есть
+    равномерный предел последовательности непрерывных функций \textbf{непрерывен}.
+\end{theorem}
+
+\begin{theorem}[Аналог теоремы Стокса-Зейделя для рядов]
+    $\sqsupset D\subseteq X$ -- м.п., $x_0\in  D^{'},   \left\{ f_n \right\}_{n=1}^{\infty },
+    f:D \to \mathbb{C}$ и $\sum_{n=1}^{\infty } f_n(x)$ сходится равномерно на $D$.
+
+    Если  $\forall n ~ f_n(x)$ непрерывна в точке $x_0$, то
+    и $\sum_{n=1}^{\infty } f_n(x)$ непрерывно в $x_0$.
+\end{theorem}
+
+\section*{}
+
+\setcounter{ticket}{32}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Предельный переход под знаком интеграла для последовательностей]
+    Если $f_n \in C[a, b]$, $f_n \rightrightarrows f$ на $[a, b]$,
+    то $\int_a^b f(x)dx = \lim_{n \rightarrow \infty} \int_a^b f_n (x)dx$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Предельный переход под знаком интеграла для рядов]
+    Если $f_n \in C[a, b]$, $\sum_{n=1}^\infty f_n$ сходится равномерно на $[a, b]$,
+    то $\int_a^b \sum_{n=1}^\infty f_n(x) = \sum_{n=1}^\infty \int_a^b f_n(x)$,
+    ряд в правой части сходится.
+\end{ticket}
+
+\setcounter{ticket}{33}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Предельный переход под знаком производной для последовательностей]
+    Пусть $f \in C^1([a, b] \rightarrow \mathbb{R})$,
+    $\exists x^0 \in [a, b] : \{f_n(x^0)\}$ сходится при $n \rightarrow \infty$,
+    $\{f_n'(x)\}$ равномерно сходится на $[a, b]$.
+
+    Тогда $\lim_{n \rightarrow \infty} f_n(x)$ дифференцируема на $[a, b]$
+    и $\forall x \in [a, b] \
+    (\lim_{n \rightarrow \infty} f_n(x))' = \lim_{n \rightarrow \infty} f_n'(x)$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Предельный переход под знаком производной для рядов]
+    Пусть $f \in C^1([a, b] \rightarrow \mathbb{R})$,
+    $\exists x^0 \in [a, b] : \sum_{n=1}^\infty f_n(x^0)$ сходится,
+    $\sum_{n=1}^\infty f_n'(x)$ равномерно сходится на $[a, b]$.
+
+    Тогда $\sum_{n=1}^\infty f_n(x)$ дифференцируема на $[a, b]$
+    и $\forall x \in [a, b] \ (\sum_{n=1}^\infty f_n(x))' = \sum_{n=1}^\infty f_n'(x)$.
+\end{ticket}
+
+\begin{theorem}[Степенные ряды]
+    Skipped
+\end{theorem}
+
+\setcounter{ticket}{19}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Параметризации поверхностей, гладкие поверхности уровня, гладкие обобщенные графики]
+
+    $M \subseteq \mathbb{R}^{n+m}$, $a \in M$, $M$ допускает параметризацию класса $C^r$
+    размерности $n$ в окрестности $a$, если $\exists \text{окрестность } U_a,
+    \text{гомеоморфизм } \Phi \in C^r (\mathbb{R}^n \supseteq O \rightarrow U_a \cap M)$,
+    $\Phi$ регулярное.
+
+    $M \subseteq \mathbb{R}^{n+m}$, $a \in M$, $M$ есть множество уровня класса $C^r$
+    размерности $n$ в окрестности $a$, если $\exists \text{окрестность } U_a,
+    F \in C^r(U_a \rightarrow \mathbb{R}^m)$, $F$ регулярно, $M \cap U_a = \{x \in U_a : F(x) = 0\}$.
+
+    $M \subseteq \mathbb{R}^{n+m}$, $a \in M$, $M$ есть обобщенный $r$-гладкий график
+    размерности $n$ в окрестности $a$, если \\ $\exists \text{окрестность } U_a,
+    f \in C^r (\mathbb{R}^n \supseteq O \rightarrow \mathbb{R}^m) : U_a \cap M = \Gamma_f$
+    с точностью до перестановки координат.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Теорема о способах задания k-мерной поверхности]
+    Пусть $m, n \in \mathbb{N}$, $M \subseteq \mathbb{R}^{n+m}$, $a \in M$.
+
+    Тогда следующие утверждения равносильны:
+    \begin{enumerate}
+        \item В окрестности $a$ $M$ - $n$-мерный $C^r$-гладкий обобщенный график
+        \item В окрестности $a$ $M$ - $n$-мерное $C^r$-гладкое множество уровня
+        \item В окрестности $a$ $M$ допускает $n$-мерную $C^r$-гладкую параметризацию
+    \end{enumerate}
+\end{ticket}
+
+\end{document}
