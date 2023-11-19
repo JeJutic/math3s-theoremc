@@ -25,11 +25,6 @@ sudo apt-get install -y texlive-latex-extra
 sudo apt-get install -y poppler-utils
 ```
 
-Для сжатия pdf-файлов (gs)
-```
-sudo apt-get install -y ghostscript
-```
-
 Для редактирования pdf-файлов (удаление пустых страниц)
 ```
 sudo apt-get install -y qpdf

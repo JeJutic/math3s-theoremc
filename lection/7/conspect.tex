@@ -1,0 +1,182 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{proof}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cx}{\mathbb{C}}
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem*{theorem}{Теорема}
+\newtheorem{consequence}{Следствие}
+\newtheorem*{remark}{Замечание}
+\newtheorem{ticket}{Билет}
+
+\title{\href{https://www.youtube.com/live/pxLv7b4ne-4?si=FdHOL9RRxvanex11}{7-ая неделя}}
+
+\date{16.10.2023}
+
+\begin{document}
+\pagestyle{empty}
+
+\maketitle
+
+% note: не соответствует порядку рассказа на лекции, но соответствует порядку скринов
+
+\setcounter{ticket}{34}
+\addtocounter{ticket}{-1}
+\begin{ticket}[(с леммой о верхнем пределе произведения)]
+    $x_n, y_n \in \mathbb{R}$, $x_n \rightarrow x$, $x > 0$.
+
+    Тогда $\overline{\lim}_{n \rightarrow \infty} x_n y_n
+    = x \overline{\lim}_{n \rightarrow \infty} y_n$.
+\end{ticket}
+
+\begin{consequence}[Сумма степенного ряда непрерывна в круге сходимости]
+    skipped
+\end{consequence}
+
+\begin{ticket}[Теорема Абеля]
+    $R$ - радиус сходимости $\sum_{n=0}^\infty c_n x^n$, $R > 0$.
+
+    Тогда
+    \begin{enumerate}
+        \item Если ряд сходится в точке $R$, то он сходится равномерно на $[0, R]$
+        \item Если ряд сходится в точке $-R$, то он сходится равномерно на $[-R, 0]$
+    \end{enumerate}
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Интегрирование степенных рядов]
+    $[\alpha, \beta] \subset (a-r, a+r)$, $r$ - радиус сходимости
+    степенного ряда $\sum_{n=0}^\infty c_n (z-a)^n$.
+
+    Тогда $\int_\alpha^\beta \sum_{n=0}^\infty c_n (x-a)^n dx
+    = \sum_{n=0}^\infty c_n \int_\alpha^\beta (x-a)^n dx$,
+    то есть ряд допускает почленное интегрирование.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Дифференцирование степенных рядов]
+    Степенной ряд $\sum_{n=0}^\infty c_n (z-a)^n \in C^\infty (B_r (a))$,
+    где $r$ - радиус сходимости.
+
+    Этот ряд допускает m-кратное дифференцирование почленно $\forall m \in \Z_+$
+    и $(\sum_{n=0}^\infty c_n (z-a)^n)^{(m)}
+    = \sum_{n=m}^\infty n (n-1) \dots(n-m+1) c_n (z-a)^{n-m}$, $z \in B_r(a)$
+\end{ticket}
+
+\setcounter{consequence}{0}
+\begin{consequence}
+    Пусть $[\alpha, \beta] \subset (a - r, a + r)$, где
+    $r = \frac{1}{\overline{\lim}_{n \rightarrow \infty} \sqrt[n]{|c_n|}}$
+
+    Тогда $\int_\alpha^\beta \sum_{n=0}^\infty c_n (x-a)^n dx
+    = \sum_{n=0}^\infty c_n \int_\alpha^\beta (x-a)^n dx$,
+    то есть ряд допускает почленное дифференцирование на $[\alpha, \beta]$.
+
+    Если ряд сходится в точке $a + r$ (или $a - r$), то утверждение верно
+    и для $[\alpha, \beta] \subseteq (a - r, a + r]$
+    (или $[\alpha, \beta] \subseteq [a - r, a + r)$)
+\end{consequence}
+
+\begin{definition}[Комплексная дифференцируемость]
+    $f: \Cx \supseteq O \rightarrow \Cx$, $a \in O$
+
+    $f'(a) = \lim_{z \rightarrow a} \frac{f(z) - f(a)}{z - a}$
+    - производная $f$ в точке $a$ (если предел существует).
+\end{definition}
+
+\begin{theorem}
+    Степенной ряд $\sum_{n=0}^\infty c_n (z-a)^n \in C^\infty (B_r(a))$,
+    где $r$ - радиус сходимости.
+
+    Этот ряд допускает $m$-кратное дифференцирование почленно $\forall m \in \Z_+$
+    и $(\sum_{n=0}^\infty c_n (z-a)^n)^{(m)} =
+    \sum_{n=m}^\infty n (n-1) \dots (n-m+1) c_n (z-a)^{n-m}$, $z \in B_r(a)$
+\end{theorem}
+
+\setcounter{ticket}{21}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Необходимое условие условного экстремума (геометрическая формулировка)]
+    $m, N \in \mathbb{N}$, $m < N$, $\mathbb{R}^n \supseteq O$ открытое,
+    $F_1, \dots, F_m, f \in C^1(O)$ и $F = (F_1, \dots, F_m)$, $F$ регулярно в $O$;
+    $a \in O$, $a$ - точка условного экстремума $f$ при условие $F(x) = 0$.
+
+    Тогда $\nabla_a f$ есть линейная комбинация $\nabla_a F_1, \dots, \nabla_a F_m$,
+    то есть $\exists \lambda_1, \dots, \lambda_m:
+        \nabla_a f = \sum_{k=1}^m \lambda_k \cdot \nabla_a F_k$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Необходимое условие условного экстремума (формулировка,
+        использующая функцию Лагранжа)]
+    $\Lagr(x_1, \dots, x_n, \lambda_1, \dots, \lambda_m)
+        = f(x_1, \dots, x_n) - \sum_{k=1}^m \lambda_k F_k(x_1, \dots, x_n)$
+    - функция Лагранжа, отвечающая функции $f$ и системе связи $F_i(x) = 0$.
+
+    Пусть выполнено условие формулировки выше.
+
+    Тогда $\exists \lambda \in \R^m : d_{(a, \lambda)} \Lagr = 0$.
+\end{ticket}
+
+\setcounter{ticket}{20}
+\addtocounter{ticket}{-1}
+\begin{ticket}[Линейное касательное пространство к k-мерной поверхности — определение \sout{и свойства}]
+    $\M \subseteq \R^n$, $p \in \M$, $\tau \in \R^N$, $\tau$ называется
+    касательным вектором к $\M$ в точке $p$ ($p \in T_p \M$),
+    если $\exists$ гладкое отображение $\gamma: (a, b) \rightarrow \M$
+    и $\exists c \in (a, b): \gamma(c) = p, \gamma'(c) = \tau$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Канонические базисы линейного касательного пространства]
+    $\M$ допускает (в окрестности точки $p$) гладкую параметризацию
+    $\Phi: \R^n \supseteq U \rightarrow \R^N$, $\Phi(U) = \M$;
+    $a \in U$, $\Phi(a) = p$.
+
+    Тогда $\frac{\partial \Phi}{\partial x_1}(a), \dots,
+        \frac{\partial \Phi}{\partial x_n}(a)$
+    называются каноническими касательными векторами.
+    Если $\Phi$ регулярно в точке $a$, они линейно независимы.
+
+%    $\gamme_j(t) \coloneqq a + t e_j$, где $e_j$ - j-ый базисный вектор $\R^n$
+%    и $t \in (-\delta, \delta)$. Заметим, что отображения гладкие.
+%
+%    $\M \subseteq \R^n$, $p \in \M$, $\tau \in \R^N$, $\tau$ называется
+%    касательным вектором к $\M$ в точке $p$ ($p \in T_p \M$),
+%    если $\exists$ гладкое отображение $\gamma: (a, b) \rightarrow \M$
+%    и $\exists c \in (a, b): \gamma(c) = p, \gamma'(c) = \tau$.
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[и его ортогонального дополнения]
+    По теореме о способах задания гладких многообразий % не вошла в скрин
+    $\exists F: \R^n \supseteq O \text{ (открытое) } \rightarrow \R^m$, $m + n = N$,
+    $\M \cap O = \{x: F(x) = 0\}$.
+
+    Тогда $\forall \tau \in T_p \M \ \forall j=1, \dots, m \ \tau \perp \nabla_p F_j$
+    и $\{\nabla_p F_j\}_{j=1}^m$ является каноническим базисом ортогонального
+    дополнения линейного касательного пространства:
+    $T_p \M = (span(\nabla_p F_1, \dots, \nabla_p F_m))^\perp$.
+\end{ticket}
+
+
+
+
+
+\end{document}

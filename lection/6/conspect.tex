@@ -114,9 +114,35 @@
     и $\forall x \in [a, b] \ (\sum_{n=1}^\infty f_n(x))' = \sum_{n=1}^\infty f_n'(x)$.
 \end{ticket}
 
-\begin{theorem}[Степенные ряды]
-    Skipped
-\end{theorem}
+\begin{ticket}[Теорема о круге сходимости степенного ряда]
+    $a, \{c_n\}_{n=0}^\infty \in \mathbb{C}$, $\sum_{n=0}^\infty c_n (z-a)^n$ называется
+    степенным рядом с коэффициентами $\{c_n\}$ и центром $a$.
+
+    $B_r(a)$ называется кругом сходимости этого степенного ряда, если
+    $\forall z \in B_r(a)$ ряд сходится и $\forall z \notin \overline{B}_r(a)$
+    ряд расходится. $r$ называют радиусом сходимости.
+
+    \textbf{Теорема Коши-Адамара.}
+    $r = \frac{1}{\overline{\lim}_{n \rightarrow \infty} \sqrt[n]{|c_n|}}$.
+    Тогда $r$ - радиус сходимости для степенного ряда.
+
+    Точнее:
+    \begin{enumerate}
+        \item $\forall \text{компакта } K : K \subseteq B_r(a)$
+            ряд сходится равномерно на $K$
+        \item $\forall z \notin \overline{B}_r(a)$ ряд расходится в точке $z$
+    \end{enumerate}
+
+    При $r = \frac{1}{0}$ считаем $r = +\infty$, при $r = \frac{1}{+\infty}$,
+    $r = 0$ (то есть круг сходимости содержит только центр).
+\end{ticket}
+
+\addtocounter{ticket}{-1}
+\begin{ticket}[Формулы для радиуса сходимости]
+    Кажется, одна из формул в целом и является предыдущей теоремой.
+    Вот другая формула: $\lim_{n \rightarrow \infty} \frac{|c_n|}{|c_{n+1}|}$
+    (в случае существования).
+\end{ticket}
 
 \setcounter{ticket}{19}
 \addtocounter{ticket}{-1}
