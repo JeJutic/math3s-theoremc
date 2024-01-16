@@ -1,6 +1,6 @@
 # math3s-theoremc
 
-Теоремный конспект по 3-му семестру математического анализа на КТ.
+Теоремный конспект (без доказательств) по 3-му семестру математического анализа на КТ.
 
 ## Содержимое
 
@@ -14,10 +14,8 @@
 
 Для компиляции LaTeX'а
 ```
-sudo apt-get install -y texlive-latex-base
-sudo apt-get install -y texlive-fonts-recommended
-sudo apt-get install -y texlive-fonts-extra 
-sudo apt-get install -y texlive-latex-extra
+sudo apt update
+sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra texlive-lang-cyrillic
 ```
 
 Для объединения pdf-файлов (pdfunite)
@@ -47,8 +45,15 @@ sudo apt-get install -y qpdf
 ./crop_screen.sh [номер недели] [номер рисунка] [номер последней непустой страницы]
 ```
 
+## Контрибут
+
+В репозитории используется разделение по лекциям и скрины, чтобы кто угодно 
+мог перепроверить информацию в конспекте. Позже можно будет переформатировать
+в файл, где билеты упорядочены по их номеру.
+
+Репозиторий открыт для внесения правок и дополнений.
+
 ## TODO
 
 * Добавить в артефакты .jpeg
-* Степенные ряды в 6-ой неделе
-* 7-ая и 8-ая недели
+* 8-ая - 16-ая недели
